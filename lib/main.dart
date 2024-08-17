@@ -46,8 +46,8 @@ class _CustomCalenderState extends State<CustomCalender> {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text("Calender View"),
-            SizedBox(
+            const Text("Calender View"),
+            const SizedBox(
               height: 10,
             ),
             _buildCalender(context)
@@ -66,7 +66,7 @@ class _CustomCalenderState extends State<CustomCalender> {
       //This will return a Week date starting from now
       return DateTime(now.year, now.month, now.day + index);
     });
-    return Container(
+    return SizedBox(
       height: 130,
       //Using a ListView builder
       child: ListView.builder(
@@ -87,8 +87,8 @@ class _CustomCalenderState extends State<CustomCalender> {
                 });
               },
               child: Container(
-                margin: EdgeInsets.all(8),
-                padding: EdgeInsets.only(left: 15, right: 15),
+                margin: const EdgeInsets.all(8),
+                padding: const EdgeInsets.only(left: 15, right: 15),
                 decoration: BoxDecoration(
                     color: isDateSelected ? Colors.teal : Colors.teal[200],
                     borderRadius: BorderRadius.circular(10)),
