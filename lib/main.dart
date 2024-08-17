@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Custom Calender',
-        theme: ThemeData.dark(),
+        theme: ThemeData.light(),
         home: const CustomCalender());
   }
 }
@@ -44,6 +44,7 @@ class _CustomCalenderState extends State<CustomCalender> {
       body: Center(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text("Calender View"),
             SizedBox(
@@ -66,7 +67,7 @@ class _CustomCalenderState extends State<CustomCalender> {
       return DateTime(now.year, now.month, now.day + index);
     });
     return Container(
-      height: 120,
+      height: 130,
       //Using a ListView builder
       child: ListView.builder(
           scrollDirection: Axis.horizontal,
@@ -104,12 +105,26 @@ class _CustomCalenderState extends State<CustomCalender> {
                     const SizedBox(
                       height: 2,
                     ),
-                    Text(
-                      day,
-                      style: TextStyle(
-                          color: isDateSelected ? Colors.white : Colors.black,
-                          fontSize: 24,
-                          fontWeight: FontWeight.bold),
+                    Container(
+                      height: 45,
+                      width: 45,
+                      decoration: BoxDecoration(
+                          color:
+                              isDateSelected ? Colors.teal[200] : Colors.teal,
+                          borderRadius: BorderRadiusDirectional.circular(100)),
+                      child: Center(
+                        child: Text(
+                          day,
+                          style: TextStyle(
+                              color: isDateSelected
+                                  ? Colors.white70
+                                  : Colors.black,
+                              fontSize: 24,
+                              fontWeight: isDateSelected
+                                  ? FontWeight.w900
+                                  : FontWeight.bold),
+                        ),
+                      ),
                     ),
                     const SizedBox(
                       height: 2,
